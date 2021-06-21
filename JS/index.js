@@ -24,9 +24,11 @@ let form_elements=[
 ['Notes', false, false, true],                          //free text notes
 ['Complications', false, true, true],                   //three level pull down menu. first chosses system, second chooses complication from system, third chooses clavien dindo severity
 ['Concerns', false, true, true],                        //two level pull dwon menu fist selects system secomd selects particular concern
-['Estimated Discharge Date',false,true,true],           //control_box has callender selector, fomments box allows comments
-['Moves To Date',true,false,false]
+['Plan', false, false, true],                             //Free text entry of plan
+['Estimated Discharge Date',false,true,true],          //control_box has callender selector, fomments box allows comments 
+['Moves To Date',true,false,false]                     
 ];
+   
 
 
 
