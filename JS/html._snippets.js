@@ -21,8 +21,7 @@ ward_dropdown=`<select id="ward_selector" name="ward">
     <option value="ITU"> ITU</option>
     <option value="2a"> Ward 2a Neurosurgery</option>
     <option value="2b"> Ward 2b Neurosurgery</option>
-    <option value=12"> Ward 12 Colorectal</option>
     <option value="11">Ward 11 Upper GI</option>
+    <option value=12"> Ward 12 Colorectal</option>
     <option value="25">Ward 25 Renal</option>
-   
 </select>`

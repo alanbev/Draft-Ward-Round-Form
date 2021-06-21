@@ -60,15 +60,18 @@ if (!element[3])
 main.append(new_element);  
 })
 
+//CONTROLS
+
 //specialties dropdown
 specialty_contol_box=document.getElementById('Specialty_control_box')
 specialty_question_holder=document.createElement("p")
-specialty_question_holder.innerHTML=specialties_dropdown
+specialty_question_holder.innerHTML=specialties_dropdown// from html_snippets
 specialty_contol_box.append(specialty_question_holder)
 
+//ward dropdown
 ward_contol_box=document.getElementById('Ward_control_box')
 ward_question_holder=document.createElement("p")
-ward_question_holder.innerHTML=ward_dropdown
+ward_question_holder.innerHTML=ward_dropdown// from html_snippets
 ward_contol_box.append(ward_question_holder)
 
 
@@ -76,5 +79,31 @@ ward_contol_box.append(ward_question_holder)
 //PCCN review
 pccn_contol_box=document.getElementById('PCCN_Reviewed_control_box')
 pccn_question_holder=document.createElement("p")
-pccn_question_holder.innerHTML=pccn_question_html
+pccn_question_holder.innerHTML=pccn_question_html// from html_snippets
 pccn_contol_box.append(pccn_question_holder)
+
+//reason for admission
+reason_for_admission_info_box=document.getElementById('Reason_for_Admission_info_box')
+reason_info_holder=document.createElement("p")
+reason_info_holder.innerText=mock_patient.reason_for_admission
+reason_for_admission_info_box.append(reason_info_holder)
+
+//concerns from last ward round
+concerns_info_box=document.getElementById('Concerns_from_Last_Ward_Round_info_box')
+concerns_info_holder=document.createElement("p")
+concerns_info_holder.innerText=mock_patient.concerns_from_last_ward_round.join(", ")
+concerns_info_box.append(concerns_info_holder)
+
+//plan from last ward round
+prev_plan_info_box=document.getElementById('Plan_from_Last_Ward_Round_info_box')
+prev_plan_info_holder=document.createElement("p")
+prev_plan_info_holder.innerText=mock_patient.plan_from_last_ward_round
+prev_plan_info_box.append(prev_plan_info_holder)
+
+//vital signs
+vital_info_box=document.getElementById('Vital_Signs_info_box')
+vital_table_holder=document.createElement("p")
+//working on this!
+
+
+vital_info_box.append(vital_table_holder)
