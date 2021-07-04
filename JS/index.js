@@ -25,7 +25,8 @@ let form_elements=[
 ['Complications', false, true, true],                   //three level pull down menu. first chosses system, second chooses complication from system, third chooses clavien dindo severity
 ['Concerns', false, true, true],                        //two level pull dwon menu fist selects system secomd selects particular concern
 ['Plan', false, false, true],                             //Free text entry of plan
-['Estimated Discharge Date',false,true,true],          //control_box has callender selector, fomments box allows comments 
+['Estimated Discharge Date',false,true,true],           //control_box has callender selector, fomments box allows comments
+['Discuss at handover meeting',false,true,false],        //radiobox 
 ['Moves To Date',true,false,false]                     
 ];
    
@@ -101,9 +102,137 @@ prev_plan_info_holder.innerText=mock_patient.plan_from_last_ward_round
 prev_plan_info_box.append(prev_plan_info_holder)
 
 //vital signs
-vital_info_box=document.getElementById('Vital_Signs_info_box')
-vital_table_holder=document.createElement("p")
-//working on this!
+let vital_info_box=document.getElementById('Vital_Signs_info_box');
+let vital_table=document.createElement("table");
+
+for (let [property,values] of Object.entries(mock_patient.vital_signs))
+    {
+       let row_name='vital_' + property
+       let vital_row=document.createElement("tr")
+       vital_row.setAttribute('id',row_name)
+       new_entry=document.createElement("td")
+       new_entry.innerText=property
+       vital_row.append(new_entry)
+       values.forEach((value) =>{
+            new_entry=document.createElement("td")
+            new_entry.innerText=value
+            vital_row.append(new_entry)
+            })
+    vital_table.append(vital_row)
+    }
+vital_info_box.append(vital_table)
+vital_control_box=document.getElementById('Vital_Signs_control_box')
+vital_button_holder=document.createElement("p")
+vital_button_holder.innerHTML=vital_icg_button
+vital_control_box.append(vital_button_holder)
 
 
-vital_info_box.append(vital_table_holder)
+//investigations
+let investigation_info_box=document.getElementById('Investigations_info_box');
+let investigation_table=document.createElement("table");
+
+for (let [property,values] of Object.entries(mock_patient.investigations))
+    {
+       let row_name='investigation_' + property
+       let investigation_row=document.createElement("tr")
+       investigation_row.setAttribute('id',row_name)
+       new_entry=document.createElement("td")
+       new_entry.innerText=property
+       investigation_row.append(new_entry)
+       values.forEach((value) =>{
+            new_entry=document.createElement("td")
+            new_entry.innerText=value
+            investigation_row.append(new_entry)
+            })
+    investigation_table.append(investigation_row)
+    }
+investigation_info_box.append(investigation_table)
+investigation_control_box=document.getElementById('Investigations_control_box')
+investigation_button_holder=document.createElement("p")
+investigation_button_holder.innerHTML=investigation_icg_button
+investigation_control_box.append(investigation_button_holder)
+
+//medications
+let medications_info_box=document.getElementById('Medications_info_box')
+mock_patient.medications.forEach((medication)=>{
+new_medication=document.createElement('p')
+new_medication.innerText=medication
+medications_info_box.append(new_medication)
+})
+
+medications_control_box=document.getElementById('Medications_control_box')
+medications_button_holder=document.createElement('p')
+medications_button_holder.innerHTML=epma_button
+medications_control_box.append(medications_button_holder)
+
+//VTE
+if (mock_patient.vte_due)
+    {
+    var vte_text="VTE assement is due"    
+    }
+else
+    {
+     var vte_text="VTE assessment is up to date"   
+    }
+
+if (mock_patient.medications.includes("Daltaparin") )
+    {
+    var daltaparin_text="Daltaparin is prescribed" 
+    }
+else  
+    {
+    var daltaparin_text="Daltaparin is not prescribed"    
+    }
+
+let vte_info_box=document.getElementById('VTE_info_box')
+let vte_status_holder=document.createElement('p')
+vte_status_holder.innerText=vte_text
+vte_info_box.append(vte_status_holder)
+let daltaparin_status_holder=document.createElement('p')
+daltaparin_status_holder.innerText=daltaparin_text
+vte_info_box.append(daltaparin_status_holder)
+
+vte_control_box=document.getElementById('VTE_control_box')
+vte_button_holder=document.createElement('p')
+vte_button_holder.innerHTML=vte_buttons
+vte_control_box.append(vte_button_holder)
+
+
+
+
+
+
+
+//resuscitation
+if (mock_patient.dnr)
+    {
+    var dnr_text="This patient has a DNR directive and is NOT for rescuscitation"
+    }
+else
+    {
+    var dnr_text="This patient is for resuscitation"    
+    }
+
+let cpr_status_info_box = document.getElementById("CPR_Status_info_box")
+dnr_status_holder=document.createElement('p')
+dnr_status_holder.innerText = dnr_text
+cpr_status_info_box.append(dnr_status_holder)
+
+let cpr_status_control_box=document.getElementById("CPR_Status_control_box")
+dnr_button_holder=document.createElement('p')
+dnr_button_holder.innerHTML=dnr_button
+cpr_status_control_box.append(dnr_button_holder)
+
+
+
+//moves to date
+let moves_info_box = document.getElementById("Moves_To_Date_info_box")
+moves_holder=document.createElement('p')
+moves_holder.innerText = mock_patient.moves
+moves_info_box.append(moves_holder)
+
+
+
+
+
+

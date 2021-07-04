@@ -1,4 +1,4 @@
-mock_patient={           
+let mock_patient={           
 reason_for_admission: "Elective admission for resection of nubbin.  History of COPD, IHD and diabetes",
 concerns_from_last_ward_round: ["Pain control", "AKI"],
 plan_from_last_ward_round: "IV fluids. Recheck U/Es. Refer to pain team. Mobilise",
@@ -6,7 +6,7 @@ vital_signs:{
             Date_Time:["25/08/22-7:05", "25/08/22-4:10","24/08/22-23:48"],
             Resp_Rate:[12,20,25],
             SaO2:[99,97,90],
-            FiO2:[20,22.28],
+            FiO2:[20,22,28],
             Temp:[36.5,37.6,38.4],
             Systolic_BP:[140,120,98],
             Dyastolic_BP:[95,82,65],
@@ -27,9 +27,9 @@ investigations:{
             Bicarbonate:[28,29,21],
             EGF:[85,80,55],
             },
-medications:["Daltaparine", "Oromorph","Paracetamol","Enalopril","Frusemide"],
+medications:["Daltaparin", "Oromorph","Paracetamol","Enalopril","Frusemide"],
 vte_due:true,
 dnr:false,
 estimated_discharge:"30/8/22",
-moves:2,
+moves:2
 }

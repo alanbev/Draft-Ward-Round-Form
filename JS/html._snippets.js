@@ -24,4 +24,16 @@ ward_dropdown=`<select id="ward_selector" name="ward">
     <option value="11">Ward 11 Upper GI</option>
     <option value=12"> Ward 12 Colorectal</option>
     <option value="25">Ward 25 Renal</option>
-</select>`
+</select>`;
+
+vital_icg_button=`<button id="vital_icg_button">Show Vital Signs ICG</button>`
+
+investigation_icg_button=`<button id="investigation_icg_button">Show Investigations ICG</button>`
+
+epma_button=`<button id="epma_button">Show VTE Assessment</button>`
+
+vte_buttons=`<button id="epma_button">Show VTE Assessment</button>
+<button id="epma_button">Show EPMA</button>`
+
+dnr_button=`<button id="epma_button">Alter DNR status</button>`
+
