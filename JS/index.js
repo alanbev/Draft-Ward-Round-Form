@@ -12,12 +12,14 @@ let form_elements=[
 ['PCCN Reviewed', false, true, true],                   //yes/no checkbox + comments
 ['Reason for Admission', true, false, true],            //info_box carries forward from previous enty -comments appends extra info
 ['Concerns from Last Ward Round', true, false, false],  //carries foward from previous enty
+['Communications from nursing staff', true, false, false],//link to field in nursing documentation for items that need to be communicated to ward round team
 ['Plan from Last Ward Round', true, false, false],      //carries foward from previous ward round
 ['Vital Signs',true, true, true],                       //info-box display summary, button in control_box to pop up ICG in window, comments
 ['Investigations',true, true, true],                    //info-box display summary, button in control_box to pop up ICG in window, comments
 ['Medications',true, true,true],                        //infobox has medication list. button in control panel to open WPMR, box for comments
 ['VTE', true, true, false],                             //info-box displays whether VTE assesssment up to date, control_box has buttons to pop up VTE assessment in window and to acess EPMA
 ['Fluid balance', true, true, true,],                   //info_box shows summary fluid balance, control_box has prsent drop-down menu, vommnets box for additional comments
+['Nutrition',false, true,true],
 ['Mobilisation', false, false, true],                   //comments on mobilisation
 ['CPR Status', true, true, true],                       //info_box displays current status, contro_box has button to accept status and button to pop up CPR form
 ['Examination Findings', false, false, true],           //entry for examination findings
@@ -25,7 +27,7 @@ let form_elements=[
 ['Complications', false, true, true],                   //three level pull down menu. first chosses system, second chooses complication from system, third chooses clavien dindo severity
 ['Concerns', false, true, true],                        //two level pull dwon menu fist selects system secomd selects particular concern
 ['Plan', false, false, true],                             //Free text entry of plan
-['Estimated Discharge Date',false,true,true],           //control_box has callender selector, fomments box allows comments
+['Estimated Discharge Date',true,true,true],           //control_box has callender selector, fomments box allows comments
 ['Discuss at handover meeting',false,true,false],        //radiobox 
 ['Moves To Date',true,false,false]                     
 ];
@@ -100,6 +102,14 @@ prev_plan_info_box=document.getElementById('Plan_from_Last_Ward_Round_info_box')
 prev_plan_info_holder=document.createElement("p")
 prev_plan_info_holder.innerText=mock_patient.plan_from_last_ward_round
 prev_plan_info_box.append(prev_plan_info_holder)
+
+//nusring communications
+nursing_info_box=document.getElementById("Communications_from_nursing_staff_info_box")
+mock_patient.nursing.forEach((comm)=>{
+new_comm=document.createElement('p')
+new_comm.innerText=comm
+nursing_info_box.append(new_comm)
+})
 
 //vital signs
 let vital_info_box=document.getElementById('Vital_Signs_info_box');
@@ -201,6 +211,14 @@ vte_control_box.append(vte_button_holder)
 
 
 
+//nutrition
+nutrition=document.getElementById("Nutrition_control_box")
+nutrition_dropdown_holder=document.createElement('p')
+nutrition_dropdown_holder.innerHTML=nutrition_dropdown
+nutrition.append(nutrition_dropdown_holder)
+supplements_holder=document.createElement('p')
+supplements_holder.innerHTML=supplement_options
+nutrition.append(supplements_holder)
 
 
 //resuscitation
@@ -224,6 +242,35 @@ dnr_button_holder.innerHTML=dnr_button
 cpr_status_control_box.append(dnr_button_holder)
 
 
+//estimated discharge
+let discharge_date=false
+let estimated_discharge_info_box=document.getElementById("Estimated_Discharge_Date_info_box")
+let discharge_date_holder=document.createElement('p')
+discharge_date_holder.innerHTML=mock_patient.estimated_discharge
+estimated_discharge_info_box.append(discharge_date_holder)
+
+let estimated_discharge_control_box=document.getElementById("Estimated_Discharge_Date_control_box")
+let discharge_button_holder=document.createElement('p')
+discharge_button_holder.innerHTML=change_discharge_button
+estimated_discharge_control_box.append(discharge_button_holder)
+discharge_button=document.getElementById("change_discharge_date_button")
+discharge_button.addEventListener('click',()=> {
+    if (!discharge_date)
+    {
+        let discharge_date_holder=document.createElement('p')
+        discharge_date_holder.innerHTML=enter_discharge_date
+        estimated_discharge_control_box.append(discharge_date_holder)
+        discharge_date=true
+    }
+})
+
+
+
+//handover
+let handover_control_box=document.getElementById("Discuss_at_handover_meeting_control_box")
+handover_holder=document.createElement('p')
+handover_holder.innerHTML=handover_radio
+handover_control_box.append(handover_holder)
 
 //moves to date
 let moves_info_box = document.getElementById("Moves_To_Date_info_box")

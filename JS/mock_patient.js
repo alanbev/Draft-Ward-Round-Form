@@ -2,6 +2,7 @@ let mock_patient={
 reason_for_admission: "Elective admission for resection of nubbin.  History of COPD, IHD and diabetes",
 concerns_from_last_ward_round: ["Pain control", "AKI"],
 plan_from_last_ward_round: "IV fluids. Recheck U/Es. Refer to pain team. Mobilise",
+nursing:["Appetite poor", "Needs help mobilising", "Pain poorly controlled"],
 vital_signs:{
             Date_Time:["25/08/22-7:05", "25/08/22-4:10","24/08/22-23:48"],
             Resp_Rate:[12,20,25],
@@ -27,6 +28,7 @@ investigations:{
             Bicarbonate:[28,29,21],
             EGF:[85,80,55],
             },
+
 medications:["Daltaparin", "Oromorph","Paracetamol","Enalopril","Frusemide"],
 vte_due:true,
 dnr:false,

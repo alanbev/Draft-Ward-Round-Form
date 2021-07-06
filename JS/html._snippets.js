@@ -30,10 +30,41 @@ vital_icg_button=`<button id="vital_icg_button">Show Vital Signs ICG</button>`
 
 investigation_icg_button=`<button id="investigation_icg_button">Show Investigations ICG</button>`
 
-epma_button=`<button id="epma_button">Show VTE Assessment</button>`
+epma_button=`<button id="epma_button">Show EPMA</button>`
+
+nutrition_dropdown=`<select id="nutrition_selector" name="nutrition">
+    <option value="normal">Tolerating normal diet</option>
+    <option value="poor_unrestricted">No restrictions but poor intake</option>
+    <option value="light">Light diet</option>
+    <option value="fluids">Fluids only</option>
+    <option value="nbm">Sips or NBM</option>
+    </select>`
+
+
+    supplement_options=`<label for="tpn">TPN</label>
+    <input type="checkbox" id="tpn"/>
+    <label for="nasogastric">Nasogatric tube feeding</label>
+    <input type="checkbox" id="nasogastric">
+    <label for="supplements">Enteral supplements</label>
+    <input type="checkbox" id="supplements"/>`
+
+
+
 
 vte_buttons=`<button id="epma_button">Show VTE Assessment</button>
 <button id="epma_button">Show EPMA</button>`
 
 dnr_button=`<button id="epma_button">Alter DNR status</button>`
+
+change_discharge_button=`<button id="change_discharge_date_button">Change Discharge Date</button>`
+
+enter_discharge_date=`<label for="date_input">Selected New Discharge Date</label>
+<input type="date" id="date_input"/>`
+
+
+handover_radio=`<p>Should the patient be discussed at this evening's handover meeting?</p>
+<label for="discuss_yes">Yes</label>
+<input type="radio" id ="discuss_yes" name="handover"/>
+<label for="discuss_no">No</label>
+<Input type="radio" id="discuss_no" name="handover"/>`
 
