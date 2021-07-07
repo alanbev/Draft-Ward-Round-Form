@@ -48,7 +48,8 @@ nutrition_dropdown=`<select id="nutrition_selector" name="nutrition">
     <label for="supplements">Enteral supplements</label>
     <input type="checkbox" id="supplements"/>`
 
-
+    fluid_buttons=`<button id="fluid_ICG_button">Show Fluid ICG</button>
+    <button id="epma_button">Show EPMA</button>`
 
 
 vte_buttons=`<button id="epma_button">Show VTE Assessment</button>

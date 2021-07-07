@@ -103,10 +103,10 @@ prev_plan_info_holder=document.createElement("p")
 prev_plan_info_holder.innerText=mock_patient.plan_from_last_ward_round
 prev_plan_info_box.append(prev_plan_info_holder)
 
-//nusring communications
-nursing_info_box=document.getElementById("Communications_from_nursing_staff_info_box")
+//nursing communications
+let nursing_info_box=document.getElementById("Communications_from_nursing_staff_info_box")
 mock_patient.nursing.forEach((comm)=>{
-new_comm=document.createElement('p')
+let new_comm=document.createElement('p')
 new_comm.innerText=comm
 nursing_info_box.append(new_comm)
 })
@@ -135,6 +135,8 @@ vital_control_box=document.getElementById('Vital_Signs_control_box')
 vital_button_holder=document.createElement("p")
 vital_button_holder.innerHTML=vital_icg_button
 vital_control_box.append(vital_button_holder)
+document.getElementById('vital_icg_button').addEventListener('click',()=>{alert('Vital signs ICG ahould appear in this window')})
+
 
 
 //investigations
@@ -161,6 +163,7 @@ investigation_control_box=document.getElementById('Investigations_control_box')
 investigation_button_holder=document.createElement("p")
 investigation_button_holder.innerHTML=investigation_icg_button
 investigation_control_box.append(investigation_button_holder)
+document.getElementById('investigation_icg_button').addEventListener('click',()=>{alert('Investigations ICG ahould appear in this window')})
 
 //medications
 let medications_info_box=document.getElementById('Medications_info_box')
@@ -207,13 +210,70 @@ vte_button_holder=document.createElement('p')
 vte_button_holder.innerHTML=vte_buttons
 vte_control_box.append(vte_button_holder)
 
+//fluid balance
+var fluid_info=document.getElementById("Fluid_balance_info_box")
+
+let fluid_in_label=document.createElement('p')
+fluid_in_label.innerText="Yesterday's Fluid Intake"
+fluid_info.append(fluid_in_label)
+
+
+var fluid_in_table=document.createElement("table");
+
+for (let [property,value] of Object.entries(mock_patient.fluid_in))
+    {
+       var row_name='fluid_in_' + property
+       var fluid_in_row=document.createElement("tr")
+       fluid_in_row.setAttribute('id',row_name)
+       new_entry=document.createElement("td")
+       new_entry.innerText=property
+       fluid_in_row.append(new_entry)
+       
+            new_entry=document.createElement("td")
+            new_entry.innerText=value
+            fluid_in_row.append(new_entry)
+            
+    fluid_in_table.append(fluid_in_row)
+        }
+fluid_info.append(fluid_in_table)
+
+let fluid_out_label=document.createElement('p')
+fluid_out_label.innerText="Yesterday's Fluid Output"
+fluid_info.append(fluid_out_label)
+
+
+var fluid_info=document.getElementById("Fluid_balance_info_box")
+
+var fluid_out_table=document.createElement("table");
+
+for (let [property,value] of Object.entries(mock_patient.fluid_out))
+    {
+       var row_name='fluid_out_' + property
+       var fluid_out_row=document.createElement("tr")
+       fluid_out_row.setAttribute('id',row_name)
+       new_entry=document.createElement("td")
+       new_entry.innerText=property
+       fluid_out_row.append(new_entry)
+       
+            new_entry=document.createElement("td")
+            new_entry.innerText=value
+            fluid_out_row.append(new_entry)
+            
+    fluid_out_table.append(fluid_out_row)
+        }
+fluid_info.append(fluid_out_table)
+
+fluid_control_box=document.getElementById('Fluid_balance_control_box')
+fluid_button_holder=document.createElement("p")
+fluid_button_holder.innerHTML=fluid_buttons
+fluid_control_box.append(fluid_button_holder)
 
 
 
 
 //nutrition
-nutrition=document.getElementById("Nutrition_control_box")
-nutrition_dropdown_holder=document.createElement('p')
+let nutrition=document.getElementById("Nutrition_control_box")
+let nutrition_dropdown_holder=document.createElement('p')
 nutrition_dropdown_holder.innerHTML=nutrition_dropdown
 nutrition.append(nutrition_dropdown_holder)
 supplements_holder=document.createElement('p')

@@ -28,6 +28,19 @@ investigations:{
             Bicarbonate:[28,29,21],
             EGF:[85,80,55],
             },
+fluid_in:{
+        Oral:900,
+        Enteral:0,
+        IV:1000,
+        },
+fluid_out:{
+        Urine:900,
+        NG_vomit:500,
+        Stoma:0,
+        Drains:10,
+},
+
+
 
 medications:["Daltaparin", "Oromorph","Paracetamol","Enalopril","Frusemide"],
 vte_due:true,
